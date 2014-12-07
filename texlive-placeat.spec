@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-placeat
 Version:	20140620
-Release:	2
+Release:	3
 Summary:	TeXLive placeat package
 Group:		Publishing
 URL:		http://tug.org/texlive
