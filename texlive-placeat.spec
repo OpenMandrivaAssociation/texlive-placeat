@@ -1,12 +1,6 @@
-# revision 33526
-# category Package
-# catalog-ctan undef
-# catalog-date undef
-# catalog-license undef
-# catalog-version undef
 Name:		texlive-placeat
-Version:	20140620
-Release:	4
+Version:	0.1d1
+Release:	1
 Summary:	TeXLive placeat package
 Group:		Publishing
 URL:		http://tug.org/texlive
@@ -32,13 +26,11 @@ TeXLive placeat package.
 
 #-----------------------------------------------------------------------
 %files
-%{_texmfdistdir}/scripts/placeat/placeat.lua
-%{_texmfdistdir}/tex/lualatex/placeat/placeat.sty
-%doc %{_texmfdistdir}/doc/lualatex/placeat/README
-%doc %{_texmfdistdir}/doc/lualatex/placeat/placeat.pdf
-%doc %{_texmfdistdir}/doc/lualatex/placeat/placeat.tex
+%{_texmfdistdir}/scripts/placeat
+%{_texmfdistdir}/tex/lualatex/placeat
+%doc %{_texmfdistdir}/doc/lualatex/placeat
 #- source
-%doc %{_texmfdistdir}/source/lualatex/placeat/placeat.dtx
+%doc %{_texmfdistdir}/source/lualatex/placeat
 
 #-----------------------------------------------------------------------
 %prep
