@@ -1,6 +1,6 @@
 Name:		texlive-placeat
 Version:	0.1d1
-Release:	1
+Release:	2
 Summary:	TeXLive placeat package
 Group:		Publishing
 URL:		http://tug.org/texlive
