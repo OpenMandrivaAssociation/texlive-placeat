@@ -1,13 +1,13 @@
 Name:		texlive-placeat
-Version:	0.1d1
-Release:	2
+Version:	45145
+Release:	1
 Summary:	TeXLive placeat package
 Group:		Publishing
 URL:		http://tug.org/texlive
 License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/placeat.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/placeat.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/placeat.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/placeat.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/placeat.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/placeat.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -17,12 +17,12 @@ Requires(post):	texlive-kpathsea
 TeXLive placeat package.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -34,7 +34,8 @@ TeXLive placeat package.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
