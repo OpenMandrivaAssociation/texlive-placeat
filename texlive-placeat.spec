@@ -1,44 +1,25 @@
-Name:		texlive-placeat
-Version:	45145
-Release:	2
-Summary:	TeXLive placeat package
+%global tl_name placeat
+%global tl_revision 45145
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.1d1
+Release:	%{tl_revision}.1
+Summary:	Absolute content positioning
 Group:		Publishing
-URL:		https://tug.org/texlive
-License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/placeat.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/placeat.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/placeat.source.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/macros/luatex/latex/placeat
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/placeat.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/placeat.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/placeat.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-TeXLive placeat package.
+The package provides commands so that the user of LuaLaTeX may position
+arbitrary content at any position specified by absolute coordinates on
+the page. The package draws a grid on each page of the document, to aid
+positioning (the grid may be disabled, for 'final copy' using the
+command \placeatsetup).
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/scripts/placeat
-%{_texmfdistdir}/tex/lualatex/placeat
-%doc %{_texmfdistdir}/doc/lualatex/placeat
-#- source
-%doc %{_texmfdistdir}/source/lualatex/placeat
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar scripts tex doc source %{buildroot}%{_texmfdistdir}
